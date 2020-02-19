@@ -3,7 +3,7 @@
 
 <head>
     <title>Doe sangue, doe vida!</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Robot:400,700&display=swap">
 </head>
 
@@ -11,7 +11,7 @@
     <header>
         <img
             class="logo" 
-            src="logo.png"
+            src="/logo.png"
             alt="Doe">
         <h2>Sua doação é muito importante❣</h2>
         <p>Você pode salvar até 3 vidas com apenas 1 doação.</p>
@@ -21,21 +21,21 @@
     </header>
     <section class="form hide">
         <h2>Entre na lista de doadores!</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input
                 type="text"
-                nome="name"
+                name="name"
                 placeholder="Nome completo"
             >
             <input
-            type="text"
-            nome="email"
-            placeholder="E-mail"
+                type="text"
+                name="email"
+                placeholder="E-mail"
             >
             <input
-                    type="text"
-                    nome="blood"
-                    placeholder="Tipo sanguíneo"
+                type="text"
+                name="blood"
+                placeholder="Tipo sanguíneo"
             >
             <button>Inscrever!</button>
         </form>
@@ -43,28 +43,21 @@
     <main>
         <h2>Ultimos <span>doadores</span>:</h2>
         <section class="donors">
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Diego Fernandes</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A-</div>
-                <p>Felipe Carvalho</p>
-            </div>
-            <div class="donor">
-                <div class="blood">O-</div>
-                <p>Ana Guatura</p>
-            </div>
-            <div class="donor">
-                <div class="blood">B+</div>
-                <p>Samuel Guatura</p>
-            </div>
+
+            {% for donor in donors %}
+
+                <div class="donor">
+                    <div class="blood">{{ donor.blood }}</div>
+                    <p>{{ donor.name }}</p>
+                </div>
+
+            {% endfor %}
         </section>
     </main>
     <footer>
         Feito com <span>♥</span> por Felipe Carvalho.
     </footer>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>
